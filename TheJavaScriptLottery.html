@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>The Javascript Lottery</h2>
+<h3>Click the button to draw a number</h3>
+
+<button id="demo" onclick="runLotto()">Lets Play!</button>
+<p id ="result">Your number is: </p>
+
+<script>
+var speed = 100;
+var i = 0;
+var res = 0;
+function loop() {
+    res = Math.floor(Math.random()*1000000);
+    document.getElementById("result").innerHTML = "Your number is:" + res;
+    if (++i < 20) {
+        setTimeout(loop, speed);
+    }
+}
+function checkWinner(){
+  if (res < 1001){
+    window.alert("Congratulations! You've won!!");}
+  else{
+    window.alert("Too bad!! You've lost!!");}
+}
+function runLotto() {
+	loop();
+  setTimeout(checkWinner,2000)
+}
+</script>
+
+</body>
+</html> 
